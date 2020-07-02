@@ -8,16 +8,16 @@ namespace Gifter.Models
 {
     public class Comment
     {
-        public int Id { get; set; }
-        public string Message { get; set; }
+        public int id { get; set; }
+        public string message { get; set; }
 
         [Required]
-        public int UserProfileId { get; set; }
+        public int userProfileId { get; set; }
 
-        public UserProfile UserProfile { get; set; }
+        public UserProfile userProfile { get; set; }
         [Required]
-        public int PostId { get; set; }
+        public int postId { get; set; }
 
-        public Post Post { get; set; }
+        public Post post { get; set; }
     }
 }
