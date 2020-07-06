@@ -47,5 +47,16 @@ namespace Gifter.Repositories
             _context.Post.Remove(post);
             _context.SaveChanges();
         }
+        public List<Post> Search(string titlecriterion, string captioncriterion, bool sortDescending)
+        {
+            var query = _context.Post
+                                .Include(p => p.UserProfile)
+                                .Where(p => p.Title.Contains(titlecriterion) & p.Caption.Contains(captioncriterion));
+
+            return sortDescending
+                ? query.OrderByDescending(p => p.DateCreated).ToList()
+                : query.OrderBy(p => p.DateCreated).ToList();
+        }
+       
     }
 }
