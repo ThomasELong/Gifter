@@ -2,6 +2,7 @@
 using Gifter.Data;
 using Gifter.Repositories;
 using Gifter.Models;
+using System;
 
 namespace Gifter.Controllers
 {
@@ -68,6 +69,11 @@ namespace Gifter.Controllers
         {
             return Ok(_postRepository.Search(q, c, sortDesc));
         }
-       
+        [HttpGet("hottest")]
+        public IActionResult Hottest(string datetime, bool sortDesc)
+        {
+            return Ok(_postRepository.Hottest(datetime, sortDesc));
+        }
+
     }
 }
